@@ -206,6 +206,11 @@ http://localhost:3333
 
 ---
 
+## Guias
+
+📘 Consulte o guia de commits convencionais:  
+➡️ [COMMIT-CONVENTIONS.md](./COMMIT-CONVENTIONS.md)
+
 # 🧑‍💻 Desenvolvedor
 
 **Joseilton Junior** — Full Stack Software Engineer
@@ -217,5 +222,3 @@ http://localhost:3333
 MIT (a definir)
 
 ---
-
-Caso queira enriquecer com badges, diagramas ou fluxo visual, só pedir!
