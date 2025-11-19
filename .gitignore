@@ -1,0 +1,35 @@
+# Node
+node_modules/
+dist/
+build/
+coverage/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Prisma
+prisma/*.db
+prisma/migrations/
+
+# Temporary
+.tmp/
+.cache/
+
+# TS
+*.tsbuildinfo
