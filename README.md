@@ -8,15 +8,15 @@ Backend do **Zenter**, uma plataforma moderna para gestão de condomínios, imó
 
 O Zenter é um sistema completo de gestão condominial e imobiliária, oferecendo:
 
-* Onboarding digital de inquilinos
-* Upload e validação segura de documentos
-* Gestão de contratos com assinatura digital
-* Comunicação entre inquilinos e administradores
-* Painel administrativo completo
-* Geração e controle de boletos/faturas
-* Chat em tempo real para chamados
-* Multi-tenant
-* Infraestrutura segura em AWS
+- Onboarding digital de inquilinos
+- Upload e validação segura de documentos
+- Gestão de contratos com assinatura digital
+- Comunicação entre inquilinos e administradores
+- Painel administrativo completo
+- Geração e controle de boletos/faturas
+- Chat em tempo real para chamados
+- Multi-tenant
+- Infraestrutura segura em AWS
 
 O backend foi projetado como um **monolito modular**, preparado para escalar e ser fatiado futuramente em microserviços.
 
@@ -36,21 +36,21 @@ src/
 
 Cada módulo possui:
 
-* `domain`: entidades, VOs, regras de negócio
-* `application`: use-cases, DTOs, commands/queries
-* `infra`: adapters externos, repositórios, mapeadores
-* `http`: controllers + rotas
+- `domain`: entidades, VOs, regras de negócio
+- `application`: use-cases, DTOs, commands/queries
+- `infra`: adapters externos, repositórios, mapeadores
+- `http`: controllers + rotas
 
 Módulos principais:
 
-* **auth**
-* **onboarding**
-* **documents**
-* **payments**
-* **tickets** (chat)
-* **contracts**
-* **notifications**
-* **admin**
+- **auth**
+- **onboarding**
+- **documents**
+- **payments**
+- **tickets** (chat)
+- **contracts**
+- **notifications**
+- **admin**
 
 ---
 
@@ -58,57 +58,56 @@ Módulos principais:
 
 ![alt text](https://i.ibb.co/wNtG7CnG/zenter-logo.jpg)
 
-
 ---
 
 # 🧪 Tecnologias Utilizadas
 
 ### **Linguagem & Runtime**
 
-* Node.js 22 LTS
-* TypeScript
-* PNPM
+- Node.js 22 LTS
+- TypeScript
+- PNPM
 
 ### **Framework**
 
-* Fastify 5
+- Fastify 5
 
 ### **Arquitetura**
 
-* Clean/Hexagonal Architecture
-* Monolito Modular
-* Domain‑Driven Design (DDD)
+- Clean/Hexagonal Architecture
+- Monolito Modular
+- Domain‑Driven Design (DDD)
 
 ### **Banco de Dados**
 
-* PostgreSQL
-* Prisma ORM
+- PostgreSQL
+- Prisma ORM
 
 ### **Autenticação**
 
-* AWS Cognito
-* JWT interno
-* 2FA opcional
+- AWS Cognito
+- JWT interno
+- 2FA opcional
 
 ### **Armazenamento**
 
-* AWS S3 (bucket privado)
-* CloudFront (URLs assinadas)
+- AWS S3 (bucket privado)
+- CloudFront (URLs assinadas)
 
 ### **Infraestrutura**
 
-* AWS Lambda (presigned URLs, workers)
-* AWS ECS ou Lambda (API)
-* IAM Roles
-* Secrets Manager
+- AWS Lambda (presigned URLs, workers)
+- AWS ECS ou Lambda (API)
+- IAM Roles
+- Secrets Manager
 
 ### **Pagamentos**
 
-* Stripe (checkout, faturas, webhook)
+- Stripe (checkout, faturas, webhook)
 
 ### **Assinatura Digital**
 
-* DocuSign (ou outro provider compatível)
+- DocuSign (ou outro provider compatível)
 
 ---
 
@@ -138,10 +137,10 @@ http://localhost:3333
 
 ## 🔐 Autenticação
 
-* Login via Cognito
-* Refresh Token
-* JWT interno para autorização
-* Controle de roles & permissions
+- Login via Cognito
+- Refresh Token
+- JWT interno para autorização
+- Controle de roles & permissions
 
 ## 📝 Onboarding de Inquilino
 
@@ -154,24 +153,24 @@ http://localhost:3333
 
 ## 📄 Documentos (S3 + CloudFront)
 
-* Upload com presigned URL
-* Armazenamento seguro (private)
-* URLs assinadas entregues ao client
-* Validade curta (5 min)
+- Upload com presigned URL
+- Armazenamento seguro (private)
+- URLs assinadas entregues ao client
+- Validade curta (5 min)
 
 ## 💳 Pagamentos (Stripe)
 
-* Faturas mensais
-* QR Code
-* Webhooks para atualização do status do pagamento
+- Faturas mensais
+- QR Code
+- Webhooks para atualização do status do pagamento
 
 ## 💬 Tickets (Chat)
 
-* WebSocket
-* Canal por chamado
-* Envio de mensagens
-* Read receipts
-* Upload de anexos
+- WebSocket
+- Canal por chamado
+- Envio de mensagens
+- Read receipts
+- Upload de anexos
 
 ---
 
@@ -179,31 +178,31 @@ http://localhost:3333
 
 ## ✔️ Estrutura
 
-* [x] Criar arquitetura modular
-* [x] Configurar ESM + TSX
-* [x] ESLint + Prettier funcionando
-* [x] Config inicial Fastify
-* [x] Módulo AUTH inicial
+- [x] Criar arquitetura modular
+- [x] Configurar ESM + TSX
+- [x] ESLint + Prettier funcionando
+- [x] Config inicial Fastify
+- [x] Módulo AUTH inicial
 
 ## 🔜 Em desenvolvimento
 
-* [ ] Implementar módulo Onboarding
-* [ ] Configurar Prisma + migrations
-* [ ] Criar módulo Documents
-* [ ] Criar módulo Payments (Stripe)
-* [ ] Criar módulo Tickets (WebSocket)
-* [ ] Criar módulo Notifications
-* [ ] Criar módulo Admin Panel API
-* [ ] Integração com DocuSign
-* [ ] Deploy AWS
+- [ ] Implementar módulo Onboarding
+- [ ] Configurar Prisma + migrations
+- [ ] Criar módulo Documents
+- [ ] Criar módulo Payments (Stripe)
+- [ ] Criar módulo Tickets (WebSocket)
+- [ ] Criar módulo Notifications
+- [ ] Criar módulo Admin Panel API
+- [ ] Integração com DocuSign
+- [ ] Deploy AWS
 
 ## 🚀 Futuro
 
-* [ ] Fatiar módulos em microserviços (conforme demanda)
-* [ ] Implementar fila (SQS/EventBridge)
-* [ ] Feature Flags
-* [ ] Observabilidade (OTEL)
-* [ ] CDN para assets públicos
+- [ ] Fatiar módulos em microserviços (conforme demanda)
+- [ ] Implementar fila (SQS/EventBridge)
+- [ ] Feature Flags
+- [ ] Observabilidade (OTEL)
+- [ ] CDN para assets públicos
 
 ---
 
