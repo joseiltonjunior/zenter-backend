@@ -3,7 +3,7 @@
     "target": "ES2022",
     "module": "esnext",
     "moduleResolution": "node",
-
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
@@ -23,5 +23,5 @@
     "strict": true,
     "outDir": "dist"
   },
-  "include": ["src", "prisma/seed.ts"]
+  "include": ["src", "src/shared/infra/database/prisma/seed.ts"]
 }
