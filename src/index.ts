@@ -1,4 +1,5 @@
 import { buildServer } from './server/http-server'
+import './core/env'
 
 async function start() {
   const app = await buildServer()

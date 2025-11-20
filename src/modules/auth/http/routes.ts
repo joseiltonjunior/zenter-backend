@@ -1,11 +1,11 @@
 import { FastifyInstance } from 'fastify'
 
-import { authController } from './controllers/auth-controller'
+import { loginRoute } from './login.route.js'
 
-export function registerAuthModule(app: FastifyInstance) {
+export async function registerAuthModule(app: FastifyInstance) {
   app.get('/auth/health', async () => {
     return { ok: true }
   })
 
-  app.post('/auth/login', authController.login)
+  app.register(loginRoute, { prefix: '/auth' })
 }
