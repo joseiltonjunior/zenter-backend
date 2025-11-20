@@ -1,4 +1,4 @@
-import { authRoutes } from '@modules/auth/infra/http/routes/auth.routes'
+import { authRoutes } from '@modules/user/infra/http/routes/auth.routes'
 import Fastify from 'fastify'
 
 import { authMiddleware } from './middlewares/auth-middleware'

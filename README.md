@@ -209,7 +209,7 @@ http://localhost:3333
 ## Guias
 
 📘 Consulte o guia de commits convencionais:  
-➡️ [COMMIT-CONVENTIONS.md](./COMMIT-CONVENTIONS.md)
+➡️ [COMMIT-CONVENTIONS.md](./COMMIT_CONVENTIONS.md)
 
 # 🧑‍💻 Desenvolvedor
 
