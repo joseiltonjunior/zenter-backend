@@ -10,7 +10,14 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --write .",
-    "check": "pnpm lint && pnpm tsc --noEmit"
+    "check": "pnpm lint && pnpm tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:update": "vitest -u",
+    "test:unit": "vitest run src/__test__/unit",
+    "test:e2e": "vitest run src/__test__/e2e"
   },
   "prisma": {
     "seed": "tsx src/shared/infra/database/prisma/seed.ts"
@@ -34,8 +41,11 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20.11.0",
     "@types/pg": "^8.15.6",
+    "@types/supertest": "^6.0.3",
     "@typescript-eslint/eslint-plugin": "^8.47.0",
     "@typescript-eslint/parser": "^8.47.0",
+    "@vitest/coverage-v8": "^4.0.12",
+    "@vitest/ui": "4.0.12",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
@@ -44,8 +54,11 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
+    "supertest": "^7.1.4",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.20.6",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.12"
   }
 }
