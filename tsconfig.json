@@ -11,7 +11,8 @@
       "@core/*": ["core/*"],
       "@domain/*": ["domain/*"],
       "@infra/*": ["infra/*"],
-      "@libs/*": ["libs/*"]
+      "@libs/*": ["libs/*"],
+      "@shared/*": ["shared/*"]
     },
 
     "esModuleInterop": true,

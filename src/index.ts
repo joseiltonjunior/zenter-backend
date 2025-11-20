@@ -1,8 +1,8 @@
-import { buildServer } from './server/http-server'
-import './core/env'
+import { createHttpServer } from './shared/http/http-server'
+import './shared/config/env'
 
 async function start() {
-  const app = await buildServer()
+  const app = await createHttpServer()
 
   try {
     await app.listen({ port: 3333 })
