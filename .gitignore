@@ -33,3 +33,5 @@ prisma/migrations/
 
 # TS
 *.tsbuildinfo
+
+/src/generated/prisma

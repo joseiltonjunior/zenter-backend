@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: zenter-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: zenter
+      POSTGRES_PASSWORD: zenter
+      POSTGRES_DB: zenter
+
+      # Locale / encoding sólido
+      TZ: 'America/Sao_Paulo'
+      PGTZ: 'America/Sao_Paulo'
+      LANG: 'en_US.utf8'
+      LC_ALL: 'en_US.utf8'
+
+    ports:
+      - '5432:5432'
+
+    volumes:
+      - zenter_data:/var/lib/postgresql/data
+      - zenter_logs:/var/log/postgresql
+      - zenter_dumps:/dumps
+
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U zenter -d zenter']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+    command: >
+      postgres
+      -c shared_buffers=512MB
+      -c max_connections=200
+      -c wal_buffers=16MB
+      -c work_mem=32MB
+      -c maintenance_work_mem=256MB
+      -c effective_cache_size=2GB
+      -c log_min_error_statement=error
+      -c log_min_duration_statement=100
+
+networks:
+  default:
+    name: zenter_network
+
+volumes:
+  zenter_data:
+  zenter_logs:
+  zenter_dumps:

@@ -1,4 +1,5 @@
-import { buildServer } from './server/http-server'
+import { buildServer } from './shared/http/http-server'
+import './shared/config/env'
 
 async function start() {
   const app = await buildServer()

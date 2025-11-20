@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-
+    "module": "esnext",
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
@@ -11,7 +11,8 @@
       "@core/*": ["core/*"],
       "@domain/*": ["domain/*"],
       "@infra/*": ["infra/*"],
-      "@libs/*": ["libs/*"]
+      "@libs/*": ["libs/*"],
+      "@shared/*": ["shared/*"]
     },
 
     "esModuleInterop": true,
@@ -22,5 +23,5 @@
     "strict": true,
     "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src", "src/shared/infra/database/prisma/seed.ts"]
 }
