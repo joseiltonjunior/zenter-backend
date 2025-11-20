@@ -1,4 +1,4 @@
-import { Email } from '../value_objects/Email'
+import { Email } from '../value_objects/email'
 
 interface UserProps {
   name: string

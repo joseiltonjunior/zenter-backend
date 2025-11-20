@@ -1,4 +1,4 @@
-import { Email } from '@modules/user/domain/value_objects/Email'
+import { Email } from '@modules/user/domain/value_objects/email'
 import { authRepository } from '@modules/user/infra/repositories'
 import { AppError } from '@shared/errors/AppError'
 import { hashProvider } from '@shared/infra/providers/hash-provider'
