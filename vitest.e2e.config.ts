@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     globals: true,
-    include: ['src/**/unit/**/*.spec.ts'],
+    include: ['src/**/e2e/**/*.spec.ts'],
   },
 })

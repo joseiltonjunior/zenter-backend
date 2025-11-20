@@ -16,8 +16,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
     "test:update": "vitest -u",
-    "test:unit": "vitest run src/__test__/unit",
-    "test:e2e": "vitest run src/__test__/e2e"
+    "test:unit": "vitest --config vitest.config.ts",
+    "test:e2e": "vitest run --config ./vitest.e2e.config.ts"
   },
   "prisma": {
     "seed": "tsx src/shared/infra/database/prisma/seed.ts"

@@ -5,24 +5,29 @@ import request from 'supertest'
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 
 let app: ReturnType<typeof buildServer>
+let createdUserId: string
 
 describe('Authenticate User (E2E)', () => {
   beforeAll(async () => {
     app = buildServer()
     await app.ready()
 
-    // cria usuário direto no banco antes do teste
-    await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         name: 'Junior',
         email: 'junior@e2e.com',
         password: await hash('123456', 6),
       },
     })
+
+    createdUserId = user.id
   })
 
   afterAll(async () => {
-    await prisma.user.deleteMany()
+    await prisma.user.delete({
+      where: { id: createdUserId },
+    })
+
     await app.close()
   })
 

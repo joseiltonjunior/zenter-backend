@@ -3,7 +3,6 @@
     "target": "ES2022",
     "module": "esnext",
     "moduleResolution": "node",
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "baseUrl": "./src",
     "types": ["vitest/globals"],
     "paths": {
