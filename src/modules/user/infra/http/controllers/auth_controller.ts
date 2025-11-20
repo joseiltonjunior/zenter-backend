@@ -2,7 +2,7 @@ import {
   AuthenticateUserSchema,
   AuthenticateUserDTO,
 } from '@modules/user/application/dto/authenticate_user_dto'
-import { authenticateUserUseCase } from '@modules/user/application/use_cases/authenticate_user_use-case'
+import { authenticateUserUseCase } from '@modules/user/application/use_cases/authenticate_user_use_case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 
 class AuthController {

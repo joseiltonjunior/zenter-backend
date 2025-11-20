@@ -1,5 +1,5 @@
 // prisma-auth-repository.ts
-import { AuthRepository } from '@modules/user/application/repositories/auth_repository'
+import { AuthRepository } from '@modules/user/application/repositories/user_repository'
 import { User } from '@modules/user/domain/entities/User'
 import { prisma } from '@shared/infra/database/prisma/client'
 
