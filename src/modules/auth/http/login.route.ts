@@ -1,4 +1,4 @@
-import { prisma } from '@libs/prisma'
+import { prisma } from '@infra/prisma/prisma'
 import bcrypt from 'bcryptjs'
 import { FastifyInstance } from 'fastify'
 import jwt from 'jsonwebtoken'

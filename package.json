@@ -12,6 +12,9 @@
     "format": "prettier --write .",
     "check": "pnpm lint && pnpm tsc --noEmit"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "^6.19.0",
     "bcryptjs": "^3.0.3",
