@@ -1,27 +1,24 @@
-export class Email {
-  private readonly value: string
+import { AppError } from '@shared/errors/AppError'
 
-  private constructor(value: string) {
-    this.value = value
-  }
+export class Email {
+  private constructor(private readonly _value: string) {}
 
   static create(email: string): Email {
     if (!email || typeof email !== 'string') {
-      throw new Error('Email must be a string')
+      throw new AppError('Email must be a string', 400)
     }
 
     const normalized = email.trim().toLowerCase()
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
     if (!emailRegex.test(normalized)) {
-      throw new Error('Invalid email format')
+      throw new AppError('Invalid email format', 400)
     }
 
     return new Email(normalized)
   }
 
-  getValue(): string {
-    return this.value
+  get value() {
+    return this._value
   }
 }

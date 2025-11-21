@@ -2,9 +2,15 @@ name: CI
 
 on:
   pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
-  lint_and_typecheck:
+  lint_type_unit:
+    name: Lint, Typecheck & Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +25,7 @@ jobs:
       - name: Install PNPM
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 8
           run_install: false
 
       - name: Install deps
@@ -29,4 +35,7 @@ jobs:
         run: pnpm lint
 
       - name: TypeScript Check
-        run: pnpm tsc --noEmit
+        run: pnpm tsc --noEmit -p tsconfig.json
+
+      - name: Run Unit Tests
+        run: pnpm test:unit
