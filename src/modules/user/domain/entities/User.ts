@@ -1,9 +1,10 @@
 import { Email } from '../value_objects/email'
+import { PasswordHash } from '../value_objects/password'
 
 interface UserProps {
   name: string
   email: Email
-  passwordHash: string
+  passwordHash: PasswordHash
   createdAt: Date
 }
 
@@ -13,17 +14,22 @@ export class User {
     private _props: UserProps,
   ) {}
 
-  // FACTORY PARA CRIAR NOVO USUÁRIO
-  static createNew(props: { id: string; name: string; email: string; passwordHash: string }): User {
+  // FACTORY para novo usuário
+  static createNew(props: {
+    id: string
+    name: string
+    email: string
+    passwordHash: string // hash já gerado pelo provider
+  }): User {
     return new User(props.id, {
-      name: props.name,
+      name: props.name.trim(),
       email: Email.create(props.email),
-      passwordHash: props.passwordHash,
+      passwordHash: PasswordHash.create(props.passwordHash),
       createdAt: new Date(),
     })
   }
 
-  // FACTORY PARA RESTAURAR DO BANCO (SEM VALIDAR)
+  // FACTORY para restaurar do banco
   static restore(props: {
     id: string
     name: string
@@ -33,8 +39,8 @@ export class User {
   }): User {
     return new User(props.id, {
       name: props.name,
-      email: Email.create(props.email), // você pode trocar isso para Email.restore() se quiser ignorar validações
-      passwordHash: props.passwordHash,
+      email: Email.create(props.email),
+      passwordHash: PasswordHash.create(props.passwordHash),
       createdAt: props.createdAt,
     })
   }
@@ -60,7 +66,7 @@ export class User {
     return this._props.createdAt
   }
 
-  // COMPORTAMENTO DO DOMÍNIO
+  // DOMÍNIO
   changeName(name: string) {
     this._props.name = name.trim()
   }
@@ -69,7 +75,21 @@ export class User {
     this._props.email = Email.create(email)
   }
 
+  /**
+   * Atualizar a senha já com hash gerado externamente.
+   * O VO garante que o hash é válido.
+   */
   changePasswordHash(hash: string) {
-    this._props.passwordHash = hash
+    this._props.passwordHash = PasswordHash.create(hash)
+  }
+
+  /**
+   * Validação de senha deveria acontecer AQUI.
+   */
+  async validatePassword(
+    raw: string,
+    hashProvider: { compare(a: string, b: string): Promise<boolean> },
+  ) {
+    return hashProvider.compare(raw, this._props.passwordHash.value)
   }
 }

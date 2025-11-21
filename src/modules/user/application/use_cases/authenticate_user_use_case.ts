@@ -19,19 +19,12 @@ export class AuthenticateUserUseCase {
 
     // Repositório recebe string (não o VO)
     const user = await this.repo.findByEmail(email.value)
-    if (!user) {
-      throw new AppError('Invalid credentials', 401)
-    }
+    if (!user) throw new AppError('Invalid credentials', 401)
 
-    // Comparação sempre usa a senha da request diretamente
-    const isValid = await this.hash.compare(data.password, user.passwordHash)
-
-    if (!isValid) {
-      throw new AppError('Invalid credentials', 401)
-    }
+    const isValid = await user.validatePassword(data.password, this.hash)
+    if (!isValid) throw new AppError('Invalid credentials', 401)
 
     const token = this.jwt.sign({ sub: user.id })
-
     return { token }
   }
 }
