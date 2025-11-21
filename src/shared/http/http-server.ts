@@ -4,10 +4,10 @@ import Fastify from 'fastify'
 import { errorMiddleware } from './middlewares/error-middleware'
 import { setupSwagger } from './swagger'
 
-export async function buildServer() {
+export function buildServer() {
   const app = Fastify({ logger: true })
 
-  await setupSwagger(app)
+  setupSwagger(app) // sem await
 
   app.register(authRoutes, { prefix: '/auth' })
 
