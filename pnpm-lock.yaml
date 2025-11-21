@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  vitest-environment-prisma: link:../../AppData/Local/pnpm/global/5/node_modules/vitest-environment-prisma
-  vitest-environment-prisma-e2e: link:../../AppData/Local/pnpm/global/5/node_modules/vitest-environment-prisma-e2e
-
 importers:
   .:
     dependencies:
