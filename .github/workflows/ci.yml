@@ -25,11 +25,11 @@ jobs:
       - name: Install PNPM
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 8
           run_install: false
 
       - name: Install deps
-        run: pnpm install --no-workspaces
+        run: pnpm install
 
       - name: Run ESLint
         run: pnpm lint
@@ -58,11 +58,11 @@ jobs:
       - name: Install PNPM
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 8
           run_install: false
 
       - name: Install deps
-        run: pnpm install --no-workspaces
+        run: pnpm install
 
       - name: Run DB migrations
         run: pnpm prisma migrate deploy || echo "No Prisma"
