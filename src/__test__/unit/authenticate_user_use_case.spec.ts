@@ -1,14 +1,14 @@
 import { randomUUID } from 'node:crypto'
 
-import { AuthRepository } from '@modules/user/application/repositories/user_repository'
-import { User } from '@modules/user/domain/entities/user'
-import { AppError } from '@shared/errors/AppError'
-import { hashProvider } from '@shared/infra/providers/hash-provider'
-import { jwtProvider } from '@shared/infra/providers/jwt-provider'
 import { hash } from 'bcryptjs'
 import { describe, it, expect, beforeEach } from 'vitest'
 
+import { AuthRepository } from '../../modules/user/application/repositories/user_repository'
 import { AuthenticateUserUseCase } from '../../modules/user/application/use_cases/authenticate_user_use_case'
+import { User } from '../../modules/user/domain/entities/user'
+import { AppError } from '../../shared/errors/AppError'
+import { hashProvider } from '../../shared/infra/providers/hash-provider'
+import { jwtProvider } from '../../shared/infra/providers/jwt-provider'
 
 /**
  * InMemory Repository — sem ANY

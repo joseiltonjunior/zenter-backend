@@ -1,9 +1,10 @@
-import { buildServer } from '@shared/http/http-server'
-import { prisma } from '@shared/infra/database/prisma/client'
 import { hash } from 'bcryptjs'
 import type { FastifyInstance } from 'fastify'
 import request from 'supertest'
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
+
+import { buildServer } from '../../shared/http/http-server'
+import { prisma } from '../../shared/infra/database/prisma/client'
 
 let app: FastifyInstance
 let createdUserId: string
