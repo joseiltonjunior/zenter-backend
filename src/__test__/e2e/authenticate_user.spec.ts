@@ -1,10 +1,11 @@
 import { buildServer } from '@shared/http/http-server'
 import { prisma } from '@shared/infra/database/prisma/client'
 import { hash } from 'bcryptjs'
+import type { FastifyInstance } from 'fastify'
 import request from 'supertest'
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 
-let app: ReturnType<typeof buildServer>
+let app: FastifyInstance
 let createdUserId: string
 
 describe('Authenticate User (E2E)', () => {

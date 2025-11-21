@@ -65,7 +65,7 @@ describe('AuthenticateUserUseCase', () => {
       id: randomUUID(),
       name: 'Junior',
       email: 'teste@teste.com',
-      passwordHash: '123456',
+      passwordHash: await hash('123456', 6),
       createdAt: new Date(),
     })
 
