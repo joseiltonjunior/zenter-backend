@@ -35,7 +35,7 @@ jobs:
         run: pnpm lint
 
       - name: TypeScript Check
-        run: pnpm tsc --noEmit
+        run: pnpm tsc --noEmit -p tsconfig.json
 
       - name: Run Unit Tests
         run: pnpm test:unit
